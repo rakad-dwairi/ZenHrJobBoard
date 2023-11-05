@@ -29,6 +29,10 @@ gem "jbuilder"
 # Used For User Authentication
 gem 'jwt'
 
+gem 'rswag'
+
+gem 'rswag-specs'
+
 
 gem 'swagger-blocks'
 

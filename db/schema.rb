@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_05_131914) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_05_220814) do
+  create_table "job_applications", force: :cascade do |t|
+    t.boolean "status"
+    t.integer "user_id", null: false
+    t.integer "job_post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["job_post_id"], name: "index_job_applications_on_job_post_id"
+    t.index ["user_id"], name: "index_job_applications_on_user_id"
+  end
+
+  create_table "job_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
@@ -18,4 +35,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_05_131914) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "job_applications", "job_posts"
+  add_foreign_key "job_applications", "users"
 end

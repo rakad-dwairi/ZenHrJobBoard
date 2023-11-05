@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
 
   post '/login', to: 'sessions#create'
+  post '/register', to: 'registrations#create'
+  resources :job_posts, only: [:index, :create, :update, :destroy]
+  resources :job_applications, only: [:index, :create]
+
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
