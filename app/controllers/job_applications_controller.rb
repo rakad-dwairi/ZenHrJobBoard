@@ -3,9 +3,9 @@ class JobApplicationsController < ApplicationController
     
   
     def index
-      job_applications = JobApplication.all
-      render json: job_applications
-    end
+        @job_applications = current_user.job_applications
+        render json: @job_applications
+      end
   
     def create
       job_application = current_user.job_applications.build(job_application_params)
@@ -29,7 +29,7 @@ class JobApplicationsController < ApplicationController
     
         render json: job_application
       end
-      
+
     def job_application_params
       params.require(:job_application).permit(:job_post_id)
     end
