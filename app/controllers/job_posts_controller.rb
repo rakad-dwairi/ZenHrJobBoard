@@ -1,5 +1,6 @@
 class JobPostsController < ApplicationController
     before_action :authenticate_admin, only: [:create, :update, :destroy]
+    
 
   
     def index
@@ -17,19 +18,20 @@ class JobPostsController < ApplicationController
     end
   
     def update
-      job_post = JobPost.find(params[:id])
-      if job_post.update(job_post_params)
-        render json: job_post
-      else
-        render json: { errors: job_post.errors.full_messages }, status: :unprocessable_entity
+        job_post = JobPost.find(params[:id])
+    
+        if job_post.update(job_post_params)
+          render json: job_post
+        else
+          render json: { errors: job_post.errors.full_messages }, status: :unprocessable_entity
+        end
       end
-    end
   
-    def destroy
-      job_post = JobPost.find(params[:id])
-      job_post.destroy
-      head :no_content
-    end
+      def destroy
+        job_post = JobPost.find(params[:id])
+        job_post.destroy
+        head :no_content
+      end
 
     def search
         query = params[:query]
