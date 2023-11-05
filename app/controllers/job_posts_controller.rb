@@ -1,5 +1,6 @@
 class JobPostsController < ApplicationController
     before_action :authenticate_admin, only: [:create, :update, :destroy]
+
   
     def index
       job_posts = JobPost.all
@@ -33,7 +34,7 @@ class JobPostsController < ApplicationController
     private
   
     def job_post_params
-      params.require(:job_post).permit(:title, :description)
+      params.require(:job_post).permit(:title, :description, :expiry_date)
     end
   end
   

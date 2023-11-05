@@ -1,2 +1,4 @@
 class JobPost < ApplicationRecord
-end
+    validates :expiry_date, presence: true
+  end
+  

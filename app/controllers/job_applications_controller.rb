@@ -1,5 +1,6 @@
 class JobApplicationsController < ApplicationController
     before_action :authenticate_user, only: [:create]
+    
   
     def index
       job_applications = JobApplication.all
