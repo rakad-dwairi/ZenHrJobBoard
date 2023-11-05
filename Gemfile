@@ -39,6 +39,15 @@ gem 'swagger-blocks'
 gem 'rspec_api_documentation'
 
 
+gem 'mailtrap', group: :development
+
+
+gem 'elasticsearch-model'
+
+
+gem 'elasticsearch-rails'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

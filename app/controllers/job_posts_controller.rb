@@ -30,6 +30,18 @@ class JobPostsController < ApplicationController
       job_post.destroy
       head :no_content
     end
+
+    def search
+        query = params[:query]
+    
+        if query.present?
+          @job_posts = JobPost.search(query)
+        else
+          @job_posts = JobPost.all
+        end
+    
+        render json: @job_posts
+      end
   
     private
   

@@ -20,6 +20,16 @@ class JobApplicationsController < ApplicationController
   
     private
   
+    def update
+        job_application = JobApplication.find(params[:id])
+        job_application.update(status: params[:status])
+    
+        # Trigger email notification
+        JobApplicationMailer.status_changed_notification(job_application).deliver_now
+    
+        render json: job_application
+      end
+      
     def job_application_params
       params.require(:job_application).permit(:job_post_id)
     end
