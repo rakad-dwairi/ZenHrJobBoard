@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_05_221407) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_06_001212) do
   create_table "job_applications", force: :cascade do |t|
     t.boolean "status"
     t.integer "user_id", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_05_221407) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.boolean "admin", default: false
   end
 
   add_foreign_key "job_applications", "job_posts"

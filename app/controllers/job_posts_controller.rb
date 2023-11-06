@@ -1,15 +1,19 @@
 class JobPostsController < ApplicationController
     before_action :authenticate_admin, only: [:create, :update, :destroy]
-    
-
   
     def index
-      job_posts = JobPost.all
-      render json: job_posts
+      @job_posts = JobPost.all
+      render json: @job_posts
+    end
+  
+    def show
+      @job_post = JobPost.find(params[:id])
+      render json: @job_post
     end
   
     def create
       job_post = JobPost.new(job_post_params)
+  
       if job_post.save
         render json: job_post, status: :created
       else
@@ -18,32 +22,20 @@ class JobPostsController < ApplicationController
     end
   
     def update
-        job_post = JobPost.find(params[:id])
-    
-        if job_post.update(job_post_params)
-          render json: job_post
-        else
-          render json: { errors: job_post.errors.full_messages }, status: :unprocessable_entity
-        end
-      end
+      job_post = JobPost.find(params[:id])
   
-      def destroy
-        job_post = JobPost.find(params[:id])
-        job_post.destroy
-        head :no_content
+      if job_post.update(job_post_params)
+        render json: job_post
+      else
+        render json: { errors: job_post.errors.full_messages }, status: :unprocessable_entity
       end
-
-    def search
-        query = params[:query]
-    
-        if query.present?
-          @job_posts = JobPost.search(query)
-        else
-          @job_posts = JobPost.all
-        end
-    
-        render json: @job_posts
-      end
+    end
+  
+    def destroy
+      job_post = JobPost.find(params[:id])
+      job_post.destroy
+      head :no_content
+    end
   
     private
   

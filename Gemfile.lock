@@ -77,6 +77,7 @@ GEM
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     base64 (0.1.1)
+    bcrypt (3.1.19)
     bigdecimal (3.1.4)
     bindex (0.8.1)
     bootsnap (1.17.0)
@@ -292,6 +293,7 @@ GEM
       railties (>= 6.0.0)
     stringio (3.0.8)
     swagger-blocks (3.0.0)
+    swagger-ui_rails (0.1.7)
     thor (1.3.0)
     timeout (0.4.0)
     turbo-rails (1.5.0)
@@ -320,6 +322,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   capybara
   debug
@@ -339,6 +342,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   stimulus-rails
   swagger-blocks
+  swagger-ui_rails
   turbo-rails
   tzinfo-data
   web-console

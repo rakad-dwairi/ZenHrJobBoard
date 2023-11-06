@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
 
+  resources :job_posts
+  resources :job_applications
+  resources :users, only: [:create]
   post '/login', to: 'sessions#create'
-  post '/register', to: 'registrations#create'
-  resources :job_posts, only: [:index, :create, :update, :destroy]
-  resources :job_applications, only: [:index, :create]
 
   resources :job_posts do
     collection do
@@ -18,6 +18,9 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
+
+  #mount SwaggerUiEngine::Engine, at: '/swagger'
+
 
   # Defines the root path route ("/")
   # root "posts#index"
