@@ -2,14 +2,6 @@ class JobPostsController < ApplicationController
     
     before_action :set_job_post, only: [:show, :update, :destroy]
 
-    # @swagger
-    # /job_posts:
-    #   get:
-    #     summary: Returns a list of job posts
-    #     description: Returns a list of job posts
-    #     responses:
-    #       200:
-    #         description: List of job posts
     def index
         @job_posts = JobPost.all
         render json: @job_posts
@@ -27,18 +19,6 @@ class JobPostsController < ApplicationController
         else
             render json: @job_post.errors, status: :unprocessable_entity
         end
-    end
-
-    def update
-        if @job_post.update(job_post_params)
-            render json: @job_post
-        else
-            render json: @job_post.errors, status: :unprocessable_entity
-        end
-    end
-
-    def destroy
-        @job_post.destroy
     end
 
     private

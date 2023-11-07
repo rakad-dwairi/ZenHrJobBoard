@@ -8,5 +8,21 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-# Admin User
-admin = User.create(email: 'rakad@dwairi.com', password: '123456', admin: true)
+# Create admin user
+User.create(email: 'admin@gmail.com', password: 'password', role: 'admin')
+
+# Create jobseeker users
+User.create(email: 'jobseeker1@example.com', password: 'password', role: 'jobseeker')
+User.create(email: 'jobseeker2@example.com', password: 'password', role: 'jobseeker')
+
+
+# db/seeds.rb
+
+# Create admin user
+User.create(email: 'admin@example.com', password: 'password', role: 'admin')
+
+# Create jobseeker users
+User.create(email: 'jobseeker1@example.com', password: 'password', role: 'jobseeker')
+User.create(email: 'jobseeker2@example.com', password: 'password', role: 'jobseeker')
+
+

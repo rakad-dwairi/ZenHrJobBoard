@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        @user.role = "jobseeker"
         if @user.save
             render json: @user, status: :created
         else
@@ -26,24 +27,27 @@ class UsersController < ApplicationController
     end
 
     def update
-        if @user.update(user_params)
-            render json: @user
+        if params[:role].present?
+          render json: { error: "Modifying the role is forbidden" }, status: :unprocessable_entity
         else
+          if @user.update(user_params)
+            render json: @user
+          else
             render json: @user.errors, status: :unprocessable_entity
+          end
         end
-    end
+      end
 
     def destroy
         @user.destroy
     end
 
     private
-
         def set_user
             @user = User.find(params[:id])
         end
 
         def user_params
-            params.permit(:email, :password, :role)
+            params.permit(:email, :password)
         end
 end

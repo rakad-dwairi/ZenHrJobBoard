@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   post '/auth/login', to: 'authentication#login'
   post '/register', to: 'users#create'
-  get '/get-current-user', to: 'users#get_current_user'
 
   resources :job_posts
   resources :job_applications
