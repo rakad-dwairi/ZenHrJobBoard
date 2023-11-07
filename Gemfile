@@ -27,44 +27,55 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 # Used For User Authentication
+# JWT (JSON Web Tokens) for secure authentication and data exchange.
 gem 'jwt'
 
+# RSwag for generating Swagger documentation for your API.
 gem 'rswag'
 
+# RSwag Specs provides RSpec matchers for testing Swagger documentation.
 gem 'rswag-specs'
 
-
+# Swagger Blocks for defining Swagger API documentation in Ruby.
 gem 'swagger-blocks'
 
+# RSpec API Documentation for generating API documentation from RSpec tests.
 gem 'rspec_api_documentation'
 
+# Swagger UI for viewing and interacting with Swagger documentation.
 gem 'swagger-ui_rails'
 
-
-
-
+# Mailtrap for email testing and debugging in development.
 gem 'mailtrap', group: :development
 
-
+# Elasticsearch integration for Rails models.
 gem 'elasticsearch-model'
 
-
+# Elasticsearch integration for Rails.
 gem 'elasticsearch-rails'
 
+# CanCanCan for authorization management.
 gem 'cancancan'
 
+# RSwag UI provides a UI for viewing Swagger documentation.
 gem 'rswag-ui'
 
+# RSpec Rails for testing Rails applications with RSpec.
 group :development, :test do
   gem 'rspec-rails', '~> 3.5'
 end
-gem 'rswag'
 
+# Debugging tools for specific platforms (MRI and Windows).
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
+
+  # FactoryBot for easily creating test data.
   gem 'factory_bot_rails'
+
+  # Faker for generating fake data for tests.
   gem 'faker'
 end
+
 
 
 # Use Redis adapter to run Action Cable in production

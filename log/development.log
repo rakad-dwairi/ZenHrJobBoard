@@ -1806,3 +1806,242 @@ Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:30:50 +030
 Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:30:50 +0300
 Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:30:50 +0300
 Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:30:50 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:52:08 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:52:09 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:52:09 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:52:09 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:52:09 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:52:09 +0300
+Started POST "/register" for ::1 at 2023-11-07 19:52:36 +0300
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"rakadissam@gmail.com", "password"=>"[FILTERED]", "role"=>"jobseeker"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "password_digest", "role", "admin") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "rakadissam@gmail.com"], ["created_at", "2023-11-07 16:52:36.638462"], ["updated_at", "2023-11-07 16:52:36.638462"], ["password_digest", "[FILTERED]"], ["role", "jobseeker"], ["admin", 0]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 201 Created in 285ms (Views: 0.2ms | ActiveRecord: 10.4ms | Allocations: 18122)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 19:53:10 +0300
+Processing by AuthenticationController#login as JSON
+  Parameters: {"email"=>"rakadissam@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 263ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 1138)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 19:53:50 +0300
+Processing by JobPostsController#create as JSON
+  Parameters: {"title"=>"String", "description"=>"test"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 158)
+
+
+Started GET "/get-current-user" for ::1 at 2023-11-07 19:54:12 +0300
+Processing by UsersController#get_current_user as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 87)
+
+
+Started GET "/get-current-user" for ::1 at 2023-11-07 19:54:23 +0300
+Processing by UsersController#get_current_user as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 84)
+
+
+Started GET "/job_posts" for ::1 at 2023-11-07 19:54:35 +0300
+Processing by JobPostsController#index as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 82)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 20:07:46 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakad@example.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakad@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 264ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 818)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 20:07:48 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakad@example.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakad@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 265ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 522)
+
+
+Started POST "/job_applications%0A" for ::1 at 2023-11-07 20:08:42 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/job_applications%0A"):
+  
+Started POST "/job_applications" for ::1 at 2023-11-07 20:08:58 +0300
+Processing by JobApplicationsController#create as */*
+  Parameters: {"user_id"=>1, "job_post_id"=>2, "status"=>"Pending", "job_application"=>{"status"=>"Pending", "user_id"=>1, "job_post_id"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_application. Context: { controller: JobApplicationsController, action: create, request: #<ActionDispatch::Request:0x000000010a897be0>, params: {"user_id"=>1, "job_post_id"=>2, "status"=>"Pending", "controller"=>"job_applications", "action"=>"create", "job_application"=>{"status"=>"Pending", "user_id"=>1, "job_post_id"=>2}} }[0m
+[31mUnpermitted parameter: :job_application. Context: { controller: JobApplicationsController, action: create, request: #<ActionDispatch::Request:0x000000010a897be0>, params: {"user_id"=>1, "job_post_id"=>2, "status"=>"Pending", "controller"=>"job_applications", "action"=>"create", "job_application"=>{"status"=>"Pending", "user_id"=>1, "job_post_id"=>2}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mJobPost Load (0.1ms)[0m  [1m[34mSELECT "job_posts".* FROM "job_posts" WHERE "job_posts"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+Completed 422 Unprocessable Entity in 20ms (Views: 0.5ms | ActiveRecord: 1.5ms | Allocations: 15166)
+
+
+  [1m[36mJobPost Load (0.4ms)[0m  [1m[34mSELECT "job_posts".* FROM "job_posts" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/register" for ::1 at 2023-11-07 20:12:38 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"admin@admin.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"admin@admin.com", "role"=>"admin"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x0000000109feb690>, params: {"email"=>"admin@admin.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"admin@admin.com", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "password_digest", "role", "admin") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "admin@admin.com"], ["created_at", "2023-11-07 17:12:38.426797"], ["updated_at", "2023-11-07 17:12:38.426797"], ["password_digest", "[FILTERED]"], ["role", "admin"], ["admin", 0]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 201 Created in 267ms (Views: 0.2ms | ActiveRecord: 2.0ms | Allocations: 2461)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 20:12:48 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@admin.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@admin.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@admin.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 269ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 516)
+
+
+Started POST "/job_posts?title=test&description=test" for ::1 at 2023-11-07 20:14:21 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"test", "description"=>"test"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.2ms | Allocations: 6845)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'
+Started POST "/job_posts" for ::1 at 2023-11-07 20:14:41 +0300
+Processing by JobPostsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.1ms | Allocations: 1404)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'
+Started POST "/job_posts" for ::1 at 2023-11-07 20:15:00 +0300
+Processing by JobPostsController#create as */*
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1404)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'
+Started POST "/job_posts" for ::1 at 2023-11-07 20:15:01 +0300
+Processing by JobPostsController#create as */*
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1404)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'
+Started POST "/job_posts" for ::1 at 2023-11-07 20:15:54 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"test", "description"=>"test", "job_post"=>{"title"=>"test", "description"=>"test"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x000000010a81fbe0>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x000000010a81fbe0>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.3ms | Allocations: 1617)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'
+Started POST "/job_posts" for ::1 at 2023-11-07 20:15:55 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"test", "description"=>"test", "job_post"=>{"title"=>"test", "description"=>"test"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000118f11378>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000118f11378>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1617)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'
+Started POST "/job_posts" for ::1 at 2023-11-07 20:16:04 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"test", "description"=>"test", "job_post"=>{"title"=>"test", "description"=>"test"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000109ba9ed8>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000109ba9ed8>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.1ms | Allocations: 1617)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'
+Started GET "/job_posts" for ::1 at 2023-11-07 20:16:46 +0300
+Processing by JobPostsController#index as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 81)
+
+
+Started GET "/get-current-user" for ::1 at 2023-11-07 20:16:50 +0300
+Processing by UsersController#get_current_user as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 83)
+
+
+Started GET "/get-current-user%0A" for ::1 at 2023-11-07 20:17:02 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/get-current-user%0A"):
+  
+Started GET "/get-current-user" for ::1 at 2023-11-07 20:17:08 +0300
+Processing by UsersController#get_current_user as */*
+  Parameters: {"title"=>"test", "description"=>"test", "user"=>{}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 634)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 20:18:03 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"test", "description"=>"test", "job_post"=>{"title"=>"test", "description"=>"test"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001189724f8>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001189724f8>, params: {"title"=>"test", "description"=>"test", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"test", "description"=>"test"}} }[0m
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 1617)
+
+
+  
+ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
+  
+app/controllers/job_posts_controller.rb:24:in `create'

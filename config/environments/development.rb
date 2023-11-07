@@ -4,13 +4,13 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-  :user_name => 'your_mailtrap_username',
-  :password => 'your_mailtrap_password',
-  :address => 'smtp.mailtrap.io',
-  :domain => 'smtp.mailtrap.io',
-  :port => '2525',
-  :authentication => :cram_md5
-}
+    address: 'smtp.mailtrap.io',
+    port: 2525,
+    user_name: 'zenhr@rakad-dwairi.info',
+    password: 'ZenHr@(123)',
+    authentication: :cram_md5
+  }
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time

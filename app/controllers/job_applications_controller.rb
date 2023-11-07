@@ -13,6 +13,7 @@ class JobApplicationsController < ApplicationController
         if @current_user.role == "admin"
             @job_application.status = "Seen"
             @job_application.save
+            NotificationsMailer.application_seen_email(@job_application.user).deliver_now
             return render json: @job_application
         end
         render json: @job_application
