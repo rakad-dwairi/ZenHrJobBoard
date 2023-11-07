@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
       if user && user.authenticate(params[:password])
         token = JwtService.encode(user_id: user.id)
         render json: { user: user, token: token, admin: user.admin? }, status: :ok
-    else
+      else
         render json: { error: 'Invalid email or password' }, status: :unauthorized
       end
     end

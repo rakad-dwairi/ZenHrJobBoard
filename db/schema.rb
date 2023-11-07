@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.1].define(version: 2023_11_06_001212) do
   create_table "job_applications", force: :cascade do |t|
-    t.boolean "status"
+    t.boolean "status", default: true
     t.integer "user_id", null: false
     t.integer "job_post_id", null: false
     t.datetime "created_at", null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_001212) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "role"
     t.boolean "admin", default: false
   end
 

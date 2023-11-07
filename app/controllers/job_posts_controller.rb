@@ -1,46 +1,55 @@
 class JobPostsController < ApplicationController
-    before_action :authenticate_admin, only: [:create, :update, :destroy]
-  
+    
+    before_action :set_job_post, only: [:show, :update, :destroy]
+
+    # @swagger
+    # /job_posts:
+    #   get:
+    #     summary: Returns a list of job posts
+    #     description: Returns a list of job posts
+    #     responses:
+    #       200:
+    #         description: List of job posts
     def index
-      @job_posts = JobPost.all
-      render json: @job_posts
+        @job_posts = JobPost.all
+        render json: @job_posts
     end
-  
+
     def show
-      @job_post = JobPost.find(params[:id])
-      render json: @job_post
+        render json: @job_post
     end
-  
+
     def create
-      job_post = JobPost.new(job_post_params)
-  
-      if job_post.save
-        render json: job_post, status: :created
-      else
-        render json: { errors: job_post.errors.full_messages }, status: :unprocessable_entity
-      end
+        @job_post = JobPost.new(job_post_params)
+        @job_post.user = @current_user
+        if @job_post.save
+            render json: @job_post, status: :created
+        else
+            render json: @job_post.errors, status: :unprocessable_entity
+        end
     end
-  
+
     def update
-      job_post = JobPost.find(params[:id])
-  
-      if job_post.update(job_post_params)
-        render json: job_post
-      else
-        render json: { errors: job_post.errors.full_messages }, status: :unprocessable_entity
-      end
+        if @job_post.update(job_post_params)
+            render json: @job_post
+        else
+            render json: @job_post.errors, status: :unprocessable_entity
+        end
     end
-  
+
     def destroy
-      job_post = JobPost.find(params[:id])
-      job_post.destroy
-      head :no_content
+        @job_post.destroy
     end
-  
+
     private
-  
-    def job_post_params
-      params.require(:job_post).permit(:title, :description, :expiry_date)
-    end
-  end
-  
+
+        def set_job_post
+            @job_post = JobPost.find(params[:id])
+        end
+
+        def job_post_params
+            params.permit(:title, :description)
+        end
+
+
+end

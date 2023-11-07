@@ -1,8 +1,14 @@
 class JobPost < ApplicationRecord
-    belongs_to :admin, class_name: 'User'
-    has_many :job_applications
+    belongs_to :user
+    before_validation :set_default_date, on: :create
   
-    validates :title, :description, presence: true
-    validates :expiry_date, presence: true, future_date: true
+    # Other model code
+  
+    private
+  
+    def set_default_date
+      self.date_posted ||= Date.current
+    end
+  
   end
   

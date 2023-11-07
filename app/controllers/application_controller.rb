@@ -1,15 +1,35 @@
 class ApplicationController < ActionController::API
-    def authenticate_request
-      @current_user = JwtService.decode(request.headers['Authorization'])
-      render json: { error: 'Unauthorized' }, status: :unauthorized unless @current_user
+    include JsonWebToken
+    before_action :authenticate_request
+    load_and_authorize_resource
+
+    rescue_from CanCan::AccessDenied do |exception|
+        render json: { error: 'Unauthorized' }, status: :unauthorized
     end
-  
-    def current_user
-      @current_user
-    end
-  
-    def authenticate_admin
-      render json: { error: 'Unauthorized' }, status: :unauthorized unless current_user&.admin?
-    end
-  end
-  
+
+    private
+
+        def authenticate_request
+            header = request.headers["Authorization"]
+            if header.nil? || header.blank?
+                render json: { error: 'Unauthorized' }, status: :unauthorized
+            else
+                header = header.split(" ").last
+                begin
+                    decoded = jwt_decode(header)
+                    @current_user = User.find(decoded[:user_id])
+                    @ability = Ability.new(@current_user)
+                rescue ActiveRecord::RecordNotFound
+                    render json: { error: 'Record not found' }, status: :not_found
+                rescue JWT::DecodeError
+                    render json: { error: 'Invalid token' }, status: :unprocessable_entity
+                end
+            end
+        end
+
+        
+        def current_user
+            @current_user 
+        end
+
+end

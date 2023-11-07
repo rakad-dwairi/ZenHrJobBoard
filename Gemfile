@@ -51,6 +51,21 @@ gem 'elasticsearch-model'
 
 gem 'elasticsearch-rails'
 
+gem 'cancancan'
+
+gem 'rswag-ui'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
+end
+gem 'rswag'
+
+group :development, :test do
+  gem "debug", platforms: %i[ mri windows ]
+  gem 'factory_bot_rails'
+  gem 'faker'
+end
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"

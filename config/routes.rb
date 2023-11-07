@@ -1,27 +1,16 @@
 Rails.application.routes.draw do
+  mount Rswag::Api::Engine => '/api-docs'
+  mount Rswag::Ui::Engine => '/api-docs'
+  get "up" => "rails/health#show", as: :rails_health_check
+  resources :users
 
+  post '/auth/login', to: 'authentication#login'
+  post '/register', to: 'users#create'
+  get '/get-current-user', to: 'users#get_current_user'
 
   resources :job_posts
   resources :job_applications
-  resources :users, only: [:create]
-  post '/login', to: 'sessions#create'
-
-  resources :job_posts do
-    collection do
-      get :search
-    end
-  end
 
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get "up" => "rails/health#show", as: :rails_health_check
-
-  #mount SwaggerUiEngine::Engine, at: '/swagger'
-
-
-  # Defines the root path route ("/")
-  # root "posts#index"
+  #get '/swagger_docs', to: 'SwaggerUiController#index'
 end

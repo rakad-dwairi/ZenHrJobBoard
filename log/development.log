@@ -675,3 +675,1134 @@ Filter chain halted as :authenticate_admin rendered or redirected
 Completed 401 Unauthorized in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms | Allocations: 82)
 
 
+Started POST "/login" for ::1 at 2023-11-06 10:09:40 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]", "session"=>{"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@dwairi.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /Users/rakadissam/Downloads/Personal/ZenHR/ZenHrJobBoard/app/services/jwt_service.rb:4)
+Completed 200 OK in 258ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 20146)
+
+
+Started POST "/login" for ::1 at 2023-11-06 10:09:42 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]", "session"=>{"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@dwairi.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 269ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 567)
+
+
+Started POST "/users" for ::1 at 2023-11-06 10:13:11 +0300
+Processing by UsersController#create as */*
+  Parameters: {"user"=>{"email"=>"example@example.com", "password"=>"[FILTERED]", "admin"=>"false"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "password_digest", "admin") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "example@example.com"], ["created_at", "2023-11-06 07:13:11.547448"], ["updated_at", "2023-11-06 07:13:11.547448"], ["password_digest", "[FILTERED]"], ["admin", 1]]
+  ↳ app/controllers/users_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:6:in `create'
+Completed 201 Created in 261ms (Views: 0.2ms | ActiveRecord: 2.1ms | Allocations: 3917)
+
+
+Started POST "/login" for ::1 at 2023-11-06 10:13:59 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"example@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 279ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 554)
+
+
+Started GET "/job_posts" for ::1 at 2023-11-06 10:14:22 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 480)
+
+
+  
+JWT::DecodeError (Nil JSON web token):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started GET "/job_posts" for ::1 at 2023-11-06 10:18:13 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 788)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started GET "/job_posts" for ::1 at 2023-11-06 10:18:15 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 756)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started POST "/login" for ::1 at 2023-11-06 11:01:09 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"example@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 269ms (Views: 0.6ms | ActiveRecord: 4.0ms | Allocations: 851)
+
+
+Started GET "/job_posts" for ::1 at 2023-11-06 11:01:39 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 756)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started GET "/job_posts" for ::1 at 2023-11-06 11:01:44 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 756)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started POST "/job_posts" for ::1 at 2023-11-06 11:01:51 +0300
+Processing by JobPostsController#create as */*
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 738)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started POST "/job_posts" for ::1 at 2023-11-06 11:03:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"We are hiring a software engineer.", "expiry_date"=>"2023-12-31"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /Users/rakadissam/Downloads/Personal/ZenHR/ZenHrJobBoard/app/services/jwt_service.rb:4)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1201)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started POST "/job_posts" for ::1 at 2023-11-06 13:00:56 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"We are hiring a software engineer.", "expiry_date"=>"2023-12-31"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 757)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+Started POST "/login" for ::1 at 2023-11-06 13:01:04 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"example@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+Completed 200 OK in 275ms (Views: 0.4ms | ActiveRecord: 2.8ms | Allocations: 14834)
+
+
+Started POST "/login" for ::1 at 2023-11-06 13:01:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"example@example.com", "password"=>"[FILTERED]", "session"=>{"email"=>"example@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "example@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /Users/rakadissam/Downloads/Personal/ZenHR/ZenHrJobBoard/app/services/jwt_service.rb:4)
+Completed 200 OK in 257ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 20140)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-06 13:01:40 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"We are hiring a software engineer.", "expiry_date"=>"2023-12-31"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 834)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:3:in `authenticate_request'
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@dwairi.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "password_digest", "admin") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "user@example.com"], ["created_at", "2023-11-06 16:11:33.488495"], ["updated_at", "2023-11-06 16:11:33.488495"], ["password_digest", "[FILTERED]"], ["admin", 0]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@dwairi.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@dwairi.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "user@example.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+Started POST "/login" for ::1 at 2023-11-06 19:18:17 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]", "session"=>{"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@dwairi.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /Users/rakadissam/Downloads/Personal/ZenHR/ZenHrJobBoard/app/services/jwt_service.rb:4)
+Completed 200 OK in 260ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 20215)
+
+
+Started GET "/job_posts" for ::1 at 2023-11-06 19:18:28 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 485)
+
+
+  
+JWT::DecodeError (Nil JSON web token):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:5:in `authenticate_request'
+Started GET "/job_posts" for ::1 at 2023-11-06 19:19:17 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 439)
+
+
+  
+JWT::DecodeError (Nil JSON web token):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:5:in `authenticate_request'
+Started GET "/job_posts" for ::1 at 2023-11-06 19:19:52 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.0ms | Allocations: 11491)
+
+
+  
+NoMethodError (undefined method `admin?' for {"user_id"=>2, "exp"=>1699373897}:Hash):
+  
+app/models/ability.rb:7:in `initialize'
+Started POST "/job_posts" for ::1 at 2023-11-06 19:20:12 +0300
+Processing by JobPostsController#create as */*
+Completed 400 Bad Request in 0ms (ActiveRecord: 0.0ms | Allocations: 701)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: job_post):
+  
+app/controllers/job_posts_controller.rb:44:in `job_post_params'
+Started GET "/job_posts" for ::1 at 2023-11-06 19:24:14 +0300
+Processing by JobPostsController#index as */*
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 604)
+
+
+  
+NoMethodError (undefined method `admin?' for {"user_id"=>2, "exp"=>1699373897}:Hash):
+  
+app/models/ability.rb:7:in `initialize'
+Started POST "/login" for ::1 at 2023-11-06 19:34:29 +0300
+Processing by SessionsController#create as */*
+  Parameters: {"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]", "session"=>{"email"=>"rakad@dwairi.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@dwairi.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:3:in `create'
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /Users/rakadissam/Downloads/Personal/ZenHR/ZenHrJobBoard/app/services/jwt_service.rb:4)
+Completed 200 OK in 263ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 5439)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-06 19:35:03 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"Job description for Software Engineer position.", "expiry_date"=>"2023-12-31T23:59:59.999Z"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 747)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:5:in `authenticate_request'
+Started POST "/job_posts" for ::1 at 2023-11-06 19:35:06 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"Job description for Software Engineer position.", "expiry_date"=>"2023-12-31T23:59:59.999Z"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 756)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:5:in `authenticate_request'
+Started POST "/job_posts" for ::1 at 2023-11-06 19:35:18 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"Job description for Software Engineer position.", "expiry_date"=>"2023-12-31T23:59:59.999Z"}}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 756)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:5:in `authenticate_request'
+Started POST "/job_posts" for ::1 at 2023-11-06 19:35:20 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"Job description for Software Engineer position.", "expiry_date"=>"2023-12-31T23:59:59.999Z"}}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms | Allocations: 756)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:12:in `decode'
+app/controllers/application_controller.rb:5:in `authenticate_request'
+Started POST "/job_posts" for ::1 at 2023-11-07 00:17:40 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"job_post"=>{"title"=>"Software Engineer", "description"=>"Job description for Software Engineer position.", "expiry_date"=>"2023-12-31T23:59:59.999Z"}}
+DEPRECATION WARNING: `Rails.application.secrets` is deprecated in favor of `Rails.application.credentials` and will be removed in Rails 7.2. (called from <class:JwtService> at /Users/rakadissam/Downloads/Personal/ZenHR/ZenHrJobBoard/app/services/jwt_service.rb:4)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 1016)
+
+
+  
+JWT::DecodeError (Invalid segment encoding):
+  
+app/services/jwt_service.rb:14:in `decode'
+app/controllers/application_controller.rb:5:in `authenticate_request'
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20231027150704)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231027150704') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+Migrating to UpdateFieldToYourModel (20231028155513)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT NULL, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+, CONSTRAINT "fk_rails_0e9ee51b69"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231028155513') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to UpdateApplicationDateInJobApplication (20231028155803)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAdminToUsers (20231106001212)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ausers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "password_digest" varchar DEFAULT NULL, "admin" boolean DEFAULT 0, "role" varchar DEFAULT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[32mINSERT INTO "ausers" ("id","email","created_at","updated_at","password_digest","admin","role")
+                     SELECT "id","email","created_at","updated_at","password_digest","admin","role" FROM "users"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "password_digest" varchar DEFAULT NULL, "role" varchar DEFAULT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "users" ("id","email","created_at","updated_at","password_digest","role")
+                     SELECT "id","email","created_at","updated_at","password_digest","role" FROM "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ausers"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (0.0ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20231106001212'[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpdateApplicationDateInJobApplication (20231028155803)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpdateApplicationDateInJobApplication (20231028155803)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to UpdateApplicationDateInJobApplication (20231028155803)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-06 21:50:50.254528', '2023-11-06 21:50:50.254530') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20231027150704)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20231027150704)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20231027150704)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 14:03:32.413500', '2023-11-07 14:03:32.413502') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20231027150704)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddRoleToUsers (20231027150704)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "user" ADD "role" varchar[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "job_applications"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "job_posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "expiry_date" date)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "password_digest" varchar, "role" varchar)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "ajob_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+, CONSTRAINT "fk_rails_0e9ee51b69"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231105221407)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231105221128),
+(20231105220814),
+(20231105220627),
+(20231105131914),
+(20231030175712),
+(20231028155803),
+(20231028155513),
+(20231027150704);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 14:05:21.344865', '2023-11-07 14:05:21.344866') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '094b4c40f9a11df34119b399beead7d7b7572a29', '2023-11-07 14:05:21.349202', '2023-11-07 14:05:21.349203') RETURNING "key"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "job_applications"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "job_posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "expiry_date" date)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "password_digest" varchar, "role" varchar)[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "status" boolean DEFAULT 1, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+, CONSTRAINT "fk_rails_0e9ee51b69"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_applications" ("id","status","user_id","job_post_id","created_at","updated_at")
+                     SELECT "id","status","user_id","job_post_id","created_at","updated_at" FROM "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20231105221407)[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20231105221128),
+(20231105220814),
+(20231105220627),
+(20231105131914),
+(20231030175712),
+(20231028155803),
+(20231028155513),
+(20231027150704);[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 14:05:21.371814', '2023-11-07 14:05:21.371816') RETURNING "key"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Update (0.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2023-11-07 14:05:21.372577' WHERE "ar_internal_metadata"."key" = 'environment'[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '094b4c40f9a11df34119b399beead7d7b7572a29', '2023-11-07 14:05:21.373930', '2023-11-07 14:05:21.373931') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddAdminToUsers (20231106001212)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "users" ADD "admin" boolean DEFAULT 0[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231106001212') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/users" for ::1 at 2023-11-07 17:13:03 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:14:17 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:15:18 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:15:19 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:15:19 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:15:20 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:16:03 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:16:41 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started GET "/" for ::1 at 2023-11-07 17:17:00 +0300
+Processing by Rails::WelcomeController#index as */*
+  Rendering /Users/rakadissam/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/rakadissam/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/railties-7.1.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.5ms | Allocations: 271)
+Completed 200 OK in 9ms (Views: 1.3ms | ActiveRecord: 0.0ms | Allocations: 2554)
+
+
+Started POST "/register" for ::1 at 2023-11-07 17:19:54 +0300
+  
+NameError (uninitialized constant ApplicationController::JsonWebToken):
+  
+app/controllers/application_controller.rb:2:in `<class:ApplicationController>'
+app/controllers/application_controller.rb:1:in `<main>'
+app/controllers/users_controller.rb:1:in `<main>'
+Started POST "/register" for ::1 at 2023-11-07 17:22:24 +0300
+Processing by UsersController#create as */*
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 30ms (Views: 0.7ms | ActiveRecord: 1.6ms | Allocations: 23165)
+
+
+Started POST "/register" for ::1 at 2023-11-07 17:22:34 +0300
+Processing by UsersController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 5ms (Views: 0.7ms | ActiveRecord: 1.2ms | Allocations: 2583)
+
+
+Started POST "/register" for ::1 at 2023-11-07 17:22:35 +0300
+Processing by UsersController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 5ms (Views: 1.2ms | ActiveRecord: 1.3ms | Allocations: 2573)
+
+
+Started POST "/register" for ::1 at 2023-11-07 17:22:35 +0300
+Processing by UsersController#create as */*
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" IS NULL LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 4ms (Views: 0.6ms | ActiveRecord: 1.1ms | Allocations: 2579)
+
+
+Started POST "/register" for ::1 at 2023-11-07 17:23:32 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"admin@example.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"admin@example.com", "role"=>"admin"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x000000010a041ae0>, params: {"email"=>"admin@example.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"admin@example.com", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "password_digest", "role", "admin") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "admin@example.com"], ["created_at", "2023-11-07 14:23:32.403794"], ["updated_at", "2023-11-07 14:23:32.403794"], ["password_digest", "[FILTERED]"], ["role", "admin"], ["admin", 0]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 201 Created in 273ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 4494)
+
+
+Started POST "/login" for ::1 at 2023-11-07 17:23:46 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for ::1 at 2023-11-07 17:24:14 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/login" for ::1 at 2023-11-07 17:24:30 +0300
+  
+ActionController::RoutingError (No route matches [POST] "/login"):
+  
+Started POST "/auth/login" for ::1 at 2023-11-07 17:24:55 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@example.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 263ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 1213)
+
+
+Started POST "/register" for ::1 at 2023-11-07 17:26:19 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"admin@example.com", "password"=>"[FILTERED]", "role"=>"jobseeker", "user"=>{"email"=>"admin@example.com", "role"=>"jobseeker"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x000000010a047800>, params: {"email"=>"admin@example.com", "password"=>"[FILTERED]", "role"=>"jobseeker", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"admin@example.com", "role"=>"jobseeker"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 268ms (Views: 0.6ms | ActiveRecord: 0.9ms | Allocations: 2557)
+
+
+Started POST "/register" for ::1 at 2023-11-07 17:26:31 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"rakad@example.com", "password"=>"[FILTERED]", "role"=>"jobseeker", "user"=>{"email"=>"rakad@example.com", "role"=>"jobseeker"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x0000000109e68a20>, params: {"email"=>"rakad@example.com", "password"=>"[FILTERED]", "role"=>"jobseeker", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"rakad@example.com", "role"=>"jobseeker"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "password_digest", "role", "admin") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "rakad@example.com"], ["created_at", "2023-11-07 14:26:31.583660"], ["updated_at", "2023-11-07 14:26:31.583660"], ["password_digest", "[FILTERED]"], ["role", "jobseeker"], ["admin", 0]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 201 Created in 273ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 2469)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 17:27:04 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakad@example.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakad@example.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@example.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 256ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 547)
+
+
+Started GET "/swagger_docs" for ::1 at 2023-11-07 17:56:09 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/swagger_docs"):
+  
+Started GET "/swagger_docs" for ::1 at 2023-11-07 17:57:09 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/swagger_docs"):
+  
+Started GET "/swagger_docs" for ::1 at 2023-11-07 17:57:46 +0300
+  
+ArgumentError ('rswag-ui' is not a supported controller name. This can lead to potential routing problems. See https://guides.rubyonrails.org/routing.html#specifying-a-controller-to-use):
+  
+config/routes.rb:14:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/api-docs" for ::1 at 2023-11-07 18:48:55 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 18:48:55 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 18:48:55 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 18:48:55 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 18:48:55 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 18:48:55 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 18:48:55 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs/v1/swagger.yaml"):
+  
+Started GET "/api-docs" for ::1 at 2023-11-07 18:51:11 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 18:51:11 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 18:51:12 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 18:51:12 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 18:51:12 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 18:51:12 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/api-docs/v1/swagger.yaml"):
+  
+Started GET "/api/swagger" for ::1 at 2023-11-07 18:57:26 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/swagger"):
+  
+Started GET "/api-docs" for ::1 at 2023-11-07 19:03:10 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:03:10 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:03:10 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:03:10 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:03:10 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:03:10 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:40 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:40 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:40 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:40 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:40 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:40 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:42 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/favicon-16x16.png" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:04:43 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:04:53 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:04:53 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:04:53 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:04:53 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:04:53 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:05:18 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:05:18 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:05:18 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:05:18 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:05:18 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:05:18 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:11:00 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:11:00 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:11:00 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:11:00 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:11:00 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:11:00 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:11:42 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:11:42 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:11:42 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:11:42 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:11:42 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:11:42 +0300
+Started POST "/register" for ::1 at 2023-11-07 19:12:06 +0300
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"test@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "created_at", "updated_at", "password_digest", "role", "admin") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "test@gmail.com"], ["created_at", "2023-11-07 16:12:07.287560"], ["updated_at", "2023-11-07 16:12:07.287560"], ["password_digest", "[FILTERED]"], ["role", "admin"], ["admin", 0]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 201 Created in 255ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 17986)
+
+
+Started POST "/register" for ::1 at 2023-11-07 19:12:40 +0300
+Processing by UsersController#create as JSON
+  Parameters: {"email"=>"test@gmail.com", "password"=>"[FILTERED]", "role"=>"admin"}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 422 Unprocessable Entity in 394ms (Views: 126.9ms | ActiveRecord: 0.6ms | Allocations: 283061)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 19:13:13 +0300
+Processing by AuthenticationController#login as JSON
+  Parameters: {"email"=>"test@gmail.com", "password"=>"[FILTERED]"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "test@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 261ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1141)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:22:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:22:21 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:22:21 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:22:21 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:22:21 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:22:21 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:22:26 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:22:26 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:22:26 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:22:26 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:22:26 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:22:26 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:22:27 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:22:27 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:22:27 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:22:27 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:22:27 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:22:27 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:22:29 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:22:29 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:22:29 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:22:29 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:22:29 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:22:29 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:24:25 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:24:25 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:24:25 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:24:25 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:24:25 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:24:25 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:24:26 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:07 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/favicon-16x16.png" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:26:08 +0300
+Started GET "/api-docs/" for ::1 at 2023-11-07 19:27:44 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:27:44 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:27:44 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:27:44 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:27:44 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:27:44 +0300
+Started GET "/api-docs" for ::1 at 2023-11-07 19:27:48 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:27:49 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:27:49 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:27:49 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:27:49 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:27:49 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:28:28 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:28:28 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:28:28 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:28:28 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:28:28 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:28:28 +0300
+Started GET "/job_posts" for ::1 at 2023-11-07 19:29:02 +0300
+Processing by JobPostsController#index as JSON
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 300)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 19:29:16 +0300
+Processing by JobPostsController#create as JSON
+  Parameters: {"title"=>"test", "description"=>"test"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 82)
+
+
+Started POST "/job_applications" for ::1 at 2023-11-07 19:29:56 +0300
+Processing by JobApplicationsController#create as JSON
+  Parameters: {"job_post_id"=>"1"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 157)
+
+
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:30:33 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:30:33 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:30:33 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:30:33 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:30:33 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:30:33 +0300
+Started GET "/api-docs/index.html" for ::1 at 2023-11-07 19:30:50 +0300
+Started GET "/api-docs/swagger-ui.css" for ::1 at 2023-11-07 19:30:50 +0300
+Started GET "/api-docs/swagger-ui-bundle.js" for ::1 at 2023-11-07 19:30:50 +0300
+Started GET "/api-docs/swagger-ui-standalone-preset.js" for ::1 at 2023-11-07 19:30:50 +0300
+Started GET "/api-docs/v1/swagger.yaml" for ::1 at 2023-11-07 19:30:50 +0300
+Started GET "/api-docs/favicon-32x32.png" for ::1 at 2023-11-07 19:30:50 +0300
