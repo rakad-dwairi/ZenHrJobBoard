@@ -5,7 +5,6 @@ class CreateJobPosts < ActiveRecord::Migration[7.1]
       t.text :description
       t.date :date_posted
       t.references :user, null: false, foreign_key: true
-
       t.timestamps
     end
   end

@@ -2045,3 +2045,214 @@ Completed 500 Internal Server Error in 7ms (ActiveRecord: 0.3ms | Allocations: 1
 ActiveModel::MissingAttributeError (can't write unknown attribute `user_id`):
   
 app/controllers/job_posts_controller.rb:24:in `create'
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-11-07 17:31:47.149214', '2023-11-07 17:31:47.149216') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20231107172731)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107172731') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddRoleToUsers (20231107172815)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "users" ADD "role" varchar[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107172815') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJobPosts (20231107172840)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "job_posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "date_posted" date, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_3858cef379"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_posts_on_user_id" ON "job_posts" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107172840') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateJobApplications (20231107172910)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "status" varchar, "application_date" date, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0e9ee51b69"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107172910') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to UpdateFieldToYourModel (20231107172947)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "status" varchar DEFAULT NULL, "application_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","user_id","job_post_id","status","application_date","created_at","updated_at")
+                     SELECT "id","user_id","job_post_id","status","application_date","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "status" varchar DEFAULT 'Not Seen', "application_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+, CONSTRAINT "fk_rails_0e9ee51b69"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_applications" ("id","user_id","job_post_id","status","application_date","created_at","updated_at")
+                     SELECT "id","user_id","job_post_id","status","application_date","created_at","updated_at" FROM "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107172947') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to UpdateApplicationDateInJobApplication (20231107173005)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "status" varchar DEFAULT 'Not Seen', "application_date" date DEFAULT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_job_post_id" ON "ajob_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_applications_on_user_id" ON "ajob_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_applications" ("id","user_id","job_post_id","status","application_date","created_at","updated_at")
+                     SELECT "id","user_id","job_post_id","status","application_date","created_at","updated_at" FROM "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_applications"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_applications" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "job_post_id" integer NOT NULL, "status" varchar DEFAULT 'Not Seen', "application_date" date DEFAULT '2023-11-07', "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_0e9ee51b69"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_01af2cd5cd"
+FOREIGN KEY ("job_post_id")
+  REFERENCES "job_posts" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_user_id" ON "job_applications" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_applications_on_job_post_id" ON "job_applications" ("job_post_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_applications" ("id","user_id","job_post_id","status","application_date","created_at","updated_at")
+                     SELECT "id","user_id","job_post_id","status","application_date","created_at","updated_at" FROM "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ajob_applications"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107173005') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to ChangeTitleToNotNullInJobPosts (20231107173029)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "ajob_posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT NULL, "description" text DEFAULT NULL, "date_posted" date DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_ajob_posts_on_user_id" ON "ajob_posts" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "ajob_posts" ("id","title","description","date_posted","user_id","created_at","updated_at")
+                     SELECT "id","title","description","date_posted","user_id","created_at","updated_at" FROM "job_posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "job_posts"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "job_posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar DEFAULT '' NOT NULL, "description" text DEFAULT NULL, "date_posted" date DEFAULT NULL, "user_id" integer NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_3858cef379"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+)[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_job_posts_on_user_id" ON "job_posts" ("user_id")[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "job_posts" ("id","title","description","date_posted","user_id","created_at","updated_at")
+                     SELECT "id","title","description","date_posted","user_id","created_at","updated_at" FROM "ajob_posts"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "ajob_posts"[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231107173029') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/register" for ::1 at 2023-11-07 20:32:36 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"rakad@admin.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"rakad@admin.com", "role"=>"admin"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00000001078e79e0>, params: {"email"=>"rakad@admin.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"rakad@admin.com", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@admin.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "rakad@admin.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 17:32:36.354212"], ["updated_at", "2023-11-07 17:32:36.354212"], ["role", "admin"]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 201 Created in 256ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 15559)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 20:32:41 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakad@admin.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakad@admin.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakad@admin.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 270ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 1140)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 20:33:27 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000108b1e4d8>, params: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000108b1e4d8>, params: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:25:in `create'
+  [1m[36mJobPost Create (0.4ms)[0m  [1m[32mINSERT INTO "job_posts" ("title", "description", "date_posted", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Mid Level Software Engineer"], ["description", "3 years of Exp."], ["date_posted", "2023-11-07"], ["user_id", 1], ["created_at", "2023-11-07 17:33:27.348513"], ["updated_at", "2023-11-07 17:33:27.348513"]]
+  ↳ app/controllers/job_posts_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:25:in `create'
+Completed 201 Created in 13ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 12228)
+
+
+Started POST "/register" for ::1 at 2023-11-07 20:33:48 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"rakadissam@gmail.com", "password"=>"[FILTERED]", "role"=>"jobseeker", "user"=>{"email"=>"rakadissam@gmail.com", "role"=>"jobseeker"}}
+[31mUnpermitted parameter: :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00000001088fdd48>, params: {"email"=>"rakadissam@gmail.com", "password"=>"[FILTERED]", "role"=>"jobseeker", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"rakadissam@gmail.com", "role"=>"jobseeker"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "rakadissam@gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 17:33:48.872962"], ["updated_at", "2023-11-07 17:33:48.872962"], ["role", "jobseeker"]]
+  ↳ app/controllers/users_controller.rb:21:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:21:in `create'
+Completed 201 Created in 266ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 2456)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 20:33:58 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakadissam@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakadissam@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 270ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 520)
+
+
+Started POST "/job_applications" for ::1 at 2023-11-07 20:34:29 +0300
+Processing by JobApplicationsController#create as */*
+  Parameters: {"user_id"=>2, "job_post_id"=>1, "status"=>"Pending", "job_application"=>{"user_id"=>2, "job_post_id"=>1, "status"=>"Pending"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_application. Context: { controller: JobApplicationsController, action: create, request: #<ActionDispatch::Request:0x0000000107e29390>, params: {"user_id"=>2, "job_post_id"=>1, "status"=>"Pending", "controller"=>"job_applications", "action"=>"create", "job_application"=>{"user_id"=>2, "job_post_id"=>1, "status"=>"Pending"}} }[0m
+[31mUnpermitted parameter: :job_application. Context: { controller: JobApplicationsController, action: create, request: #<ActionDispatch::Request:0x0000000107e29390>, params: {"user_id"=>2, "job_post_id"=>1, "status"=>"Pending", "controller"=>"job_applications", "action"=>"create", "job_application"=>{"user_id"=>2, "job_post_id"=>1, "status"=>"Pending"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mJobPost Load (0.6ms)[0m  [1m[34mSELECT "job_posts".* FROM "job_posts" WHERE "job_posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mJobApplication Create (0.1ms)[0m  [1m[32mINSERT INTO "job_applications" ("user_id", "job_post_id", "status", "application_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 2], ["job_post_id", 1], ["status", "Pending"], ["application_date", "2023-11-07"], ["created_at", "2023-11-07 17:34:29.642217"], ["updated_at", "2023-11-07 17:34:29.642217"]]
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+Completed 201 Created in 18ms (Views: 0.2ms | ActiveRecord: 1.5ms | Allocations: 11899)
+
+
+Started PUT "/job_applications/1" for ::1 at 2023-11-07 20:35:18 +0300
+Processing by JobApplicationsController#update as JSON
+  Parameters: {"job_post_id"=>"1", "id"=>"1"}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 103)
+
+

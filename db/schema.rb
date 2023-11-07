@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_06_001212) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_07_173029) do
   create_table "job_applications", force: :cascade do |t|
-    t.boolean "status", default: true
     t.integer "user_id", null: false
     t.integer "job_post_id", null: false
+    t.string "status", default: "Not Seen"
+    t.date "application_date", default: "2023-11-07"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["job_post_id"], name: "index_job_applications_on_job_post_id"
@@ -22,22 +23,24 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_06_001212) do
   end
 
   create_table "job_posts", force: :cascade do |t|
-    t.string "title"
+    t.string "title", default: "", null: false
     t.text "description"
+    t.date "date_posted"
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "expiry_date"
+    t.index ["user_id"], name: "index_job_posts_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_digest"
     t.string "role"
-    t.boolean "admin", default: false
   end
 
   add_foreign_key "job_applications", "job_posts"
   add_foreign_key "job_applications", "users"
+  add_foreign_key "job_posts", "users"
 end
