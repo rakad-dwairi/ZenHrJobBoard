@@ -17,5 +17,6 @@ class AuthenticationController < ApplicationController
         render json: { error: 'User not found' }, status: :not_found
       end
     end
+
   end
   

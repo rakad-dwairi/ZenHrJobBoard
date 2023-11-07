@@ -2,60 +2,80 @@ class UsersController < ApplicationController
     skip_before_action :authenticate_request, only: [:create]
     before_action :set_user, only: [:update, :destroy]
     skip_load_and_authorize_resource :only => [:create, :get_current_user]
-  
-    # GET /users
+
     def index
-      @users = User.all
-      render json: @users
-    end
-  
-    # GET /users/:id
-    def show
-      render json: @user
-    end
-  
-    # GET /get_current_user
-    def get_current_user
-      render json: @current_user
-    end
-  
-    # POST /users
-    def create
-      @user = User.new(user_params)
-      @user.role = "jobseeker" # Set role to jobseeker for all new users
-      if @user.save
-        render json: @user, status: :created
-      else
-        render json: @user.errors, status: :unprocessable_entity
-      end
-    end
-  
-    # PATCH /users/:id
-    def update
-      if params[:role].present?
-        render json: { error: "Modifying the role is forbidden" }, status: :unprocessable_entity
-      else
-        if @user.update(user_params)
-          render json: @user
-        else
-          render json: @user.errors, status: :unprocessable_entity
+        begin
+            @users = User.all
+            render json: @users
+        rescue StandardError => e
+            render json: { error: e.message }, status: :unprocessable_entity
         end
-      end
     end
-  
-    # DELETE /users/:id
+
+    def show
+        begin
+            render json: @user
+        rescue ActiveRecord::RecordNotFound => e
+            render json: { error: e.message }, status: :not_found
+        end
+    end
+
+    def get_current_user
+        begin
+            render json: @current_user
+        rescue StandardError => e
+            render json: { error: e.message }, status: :unprocessable_entity
+        end
+    end
+
+    def create
+        begin
+            @user = User.new(user_params)
+            @user.role = "jobseeker"
+            if @user.save
+                render json: @user, status: :created
+            else
+                render json: @user.errors, status: :unprocessable_entity
+            end
+        rescue StandardError => e
+            render json: { error: e.message }, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        begin
+            if params[:role].present?
+                render json: { error: "Modifying the role is forbidden" }, status: :unprocessable_entity
+            else
+                if @user.update(user_params)
+                    render json: @user
+                else
+                    render json: @user.errors, status: :unprocessable_entity
+                end
+            end
+        rescue StandardError => e
+            render json: { error: e.message }, status: :unprocessable_entity
+        end
+    end
+
     def destroy
-      @user.destroy
+        begin
+            @user.destroy
+        rescue StandardError => e
+            render json: { error: e.message }, status: :unprocessable_entity
+        end
     end
-  
+
+
     private
-  
+
     def set_user
-      @user = User.find(params[:id])
+        @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+        render json: { error: e.message }, status: :not_found
     end
-  
+
     def user_params
-      params.permit(:email, :password)
+        params.permit(:email, :password)
     end
-  end
-  
+end

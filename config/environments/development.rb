@@ -30,6 +30,8 @@ Rails.application.configure do
   #  Enable Swagger
   config.swagger_dry_run = false
 
+  # Routing Errors Handler
+  config.consider_all_requests_local = false
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
