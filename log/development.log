@@ -3153,3 +3153,886 @@ Processing by UsersController#destroy as */*
 Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2244)
 
 
+Started POST "/auth/login" for ::1 at 2023-11-07 21:47:49 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 500 Internal Server Error in 246ms (ActiveRecord: 0.9ms | Allocations: 3903)
+
+
+  
+NameError (undefined local variable or method `user' for #<AuthenticationController:0x0000000004c7c0>):
+  
+app/controllers/authentication_controller.rb:9:in `login'
+Started POST "/auth/login" for ::1 at 2023-11-07 21:48:03 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 250ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4153)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:50:42 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 200 OK in 249ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4113)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:50:46 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:24:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001229f03d0>, params: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}} }[0m
+Completed 401 Unauthorized in 9ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 5857)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:51:11 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 484)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:51:14 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:51:14 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:51:15 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:51:58 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 487)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:51:59 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:52:05 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp"}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:52:14 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 200 OK in 270ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 3797)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:52:35 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000121b5ac80>, params: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp"}} }[0m
+Completed 404 Not Found in 15ms (ActiveRecord: 0.2ms | Allocations: 14547)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_job_post
+callback on JobPostsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.1) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/job_posts" for ::1 at 2023-11-07 21:53:02 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000121a7ec58>, params: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp"}} }[0m
+Completed 404 Not Found in 7ms (ActiveRecord: 1.4ms | Allocations: 8985)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_job_post
+callback on JobPostsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.1) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/job_posts" for ::1 at 2023-11-07 21:53:14 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer1", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer1", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001165fbce0>, params: {"title"=>"Mid Level Software Engineer1", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer1", "description"=>"3 years of Exp"}} }[0m
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 1464)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_job_post
+callback on JobPostsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.1) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/job_posts" for ::1 at 2023-11-07 21:53:18 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000110736228>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+Completed 404 Not Found in 4ms (ActiveRecord: 0.1ms | Allocations: 1462)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_job_post
+callback on JobPostsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.1) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/job_posts" for ::1 at 2023-11-07 21:54:03 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000122bd2bd0>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+Completed 404 Not Found in 6ms (ActiveRecord: 1.2ms | Allocations: 8985)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_job_post
+callback on JobPostsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.1) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/auth/login" for ::1 at 2023-11-07 21:54:30 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 263ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 796)
+
+
+Started POST "/register" for ::1 at 2023-11-07 21:54:35 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"rakadissam79gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"rakadissam79gmail.com", "role"=>"admin"}}
+[31mUnpermitted parameters: :role, :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x00000001109191a8>, params: {"email"=>"rakadissam79gmail.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"rakadissam79gmail.com", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam79gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mUser Create (0.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "rakadissam79gmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 18:54:35.976851"], ["updated_at", "2023-11-07 18:54:35.976851"], ["role", "jobseeker"]]
+  ↳ app/controllers/users_controller.rb:22:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:22:in `create'
+Completed 201 Created in 266ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 2909)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:54:41 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 269ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 524)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:54:42 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 264ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 525)
+
+
+Started POST "/job_applications" for ::1 at 2023-11-07 21:55:15 +0300
+Processing by JobApplicationsController#create as */*
+  Parameters: {"user_id"=>3, "job_post_id"=>1, "status"=>"Pending", "job_application"=>{"user_id"=>3, "job_post_id"=>1, "status"=>"Pending"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_application. Context: { controller: JobApplicationsController, action: create, request: #<ActionDispatch::Request:0x0000000121bf9f60>, params: {"user_id"=>3, "job_post_id"=>1, "status"=>"Pending", "controller"=>"job_applications", "action"=>"create", "job_application"=>{"user_id"=>3, "job_post_id"=>1, "status"=>"Pending"}} }[0m
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 4426)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:55:31 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakadissam79gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakadissam79gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam79gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 401 Unauthorized in 268ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 459)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:55:47 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakadissam79gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakadissam79gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam79gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 268ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 527)
+
+
+Started POST "/job_applications" for ::1 at 2023-11-07 21:56:02 +0300
+Processing by JobApplicationsController#create as */*
+  Parameters: {"user_id"=>3, "job_post_id"=>1, "status"=>"Pending", "job_application"=>{"user_id"=>3, "job_post_id"=>1, "status"=>"Pending"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_application. Context: { controller: JobApplicationsController, action: create, request: #<ActionDispatch::Request:0x000000012249e260>, params: {"user_id"=>3, "job_post_id"=>1, "status"=>"Pending", "controller"=>"job_applications", "action"=>"create", "job_application"=>{"user_id"=>3, "job_post_id"=>1, "status"=>"Pending"}} }[0m
+[31mUnpermitted parameter: :job_application. Context: { controller: JobApplicationsController, action: create, request: #<ActionDispatch::Request:0x000000012249e260>, params: {"user_id"=>3, "job_post_id"=>1, "status"=>"Pending", "controller"=>"job_applications", "action"=>"create", "job_application"=>{"user_id"=>3, "job_post_id"=>1, "status"=>"Pending"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mJobPost Load (1.0ms)[0m  [1m[34mSELECT "job_posts".* FROM "job_posts" WHERE "job_posts"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mJobApplication Create (0.1ms)[0m  [1m[32mINSERT INTO "job_applications" ("user_id", "job_post_id", "status", "application_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_id", 12], ["job_post_id", 1], ["status", "Pending"], ["application_date", "2023-11-07"], ["created_at", "2023-11-07 18:56:02.656301"], ["updated_at", "2023-11-07 18:56:02.656301"]]
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/job_applications_controller.rb:25:in `create'
+Completed 201 Created in 13ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 5597)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:56:15 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000121cde610>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+Completed 401 Unauthorized in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 1620)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:56:52 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 264ms (Views: 0.3ms | ActiveRecord: 0.2ms | Allocations: 524)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:57:06 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001133ba470>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+Completed 404 Not Found in 3ms (ActiveRecord: 0.1ms | Allocations: 1460)
+
+
+  
+AbstractController::ActionNotFound (The update action could not be found for the :set_job_post
+callback on JobPostsController, but it is listed in the controller's
+:only option.
+
+Raising for missing callback actions is a new default in Rails 7.1, if you'd
+like to turn this off you can delete the option from the environment configurations
+or set `config.action_controller.raise_on_missing_callback_actions` to `false`.
+):
+  
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:62:in `match?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:426:in `block in make_lambda'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block (2 levels) in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `all?'
+activesupport (7.1.1) lib/active_support/callbacks.rb:182:in `block in halting_and_conditional'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `block in invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `each'
+activesupport (7.1.1) lib/active_support/callbacks.rb:598:in `invoke_before'
+activesupport (7.1.1) lib/active_support/callbacks.rb:109:in `run_callbacks'
+actionpack (7.1.1) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.1) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.1) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.1) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.1) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.1) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.1) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.1) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.1) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.1) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.1) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.1) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/job_posts" for ::1 at 2023-11-07 21:57:37 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000122c312c0>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x0000000122c312c0>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mJobPost Create (1.6ms)[0m  [1m[32mINSERT INTO "job_posts" ("title", "description", "date_posted", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Mid Level Software Engineer2"], ["description", "3 years of Exp"], ["date_posted", "2023-11-07"], ["user_id", 8], ["created_at", "2023-11-07 18:57:37.979092"], ["updated_at", "2023-11-07 18:57:37.979092"]]
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+Completed 201 Created in 10ms (Views: 0.2ms | ActiveRecord: 3.0ms | Allocations: 10693)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:58:18 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001231b26e0>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001231b26e0>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mJobPost Create (0.4ms)[0m  [1m[32mINSERT INTO "job_posts" ("title", "description", "date_posted", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Mid Level Software Engineer2"], ["description", "3 years of Exp"], ["date_posted", "2023-11-07"], ["user_id", 8], ["created_at", "2023-11-07 18:58:19.062777"], ["updated_at", "2023-11-07 18:58:19.062777"]]
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+Completed 201 Created in 15ms (Views: 0.2ms | ActiveRecord: 2.6ms | Allocations: 10629)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:58:20 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001224d56e8>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001224d56e8>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mJobPost Create (1.1ms)[0m  [1m[32mINSERT INTO "job_posts" ("title", "description", "date_posted", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Mid Level Software Engineer2"], ["description", "3 years of Exp"], ["date_posted", "2023-11-07"], ["user_id", 8], ["created_at", "2023-11-07 18:58:20.845567"], ["updated_at", "2023-11-07 18:58:20.845567"]]
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+Completed 201 Created in 4ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 2703)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:58:27 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 746)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:58:55 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+Filter chain halted as :authenticate_request rendered or redirected
+Completed 422 Unprocessable Entity in 1ms (Views: 0.4ms | ActiveRecord: 1.2ms | Allocations: 767)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:58:59 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001231d80c0>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001231d80c0>, params: {"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer2", "description"=>"3 years of Exp"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mJobPost Create (0.4ms)[0m  [1m[32mINSERT INTO "job_posts" ("title", "description", "date_posted", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["title", "Mid Level Software Engineer2"], ["description", "3 years of Exp"], ["date_posted", "2023-11-07"], ["user_id", 8], ["created_at", "2023-11-07 18:58:59.051735"], ["updated_at", "2023-11-07 18:58:59.051735"]]
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/job_posts_controller.rb:17:in `create'
+Completed 201 Created in 10ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 10564)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 22:01:04 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 200 OK in 246ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4094)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 22:01:08 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 401 Unauthorized in 269ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 460)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 22:01:13 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com1", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com1"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 404 Not Found in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 423)
+
+

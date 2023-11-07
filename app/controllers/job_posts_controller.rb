@@ -21,6 +21,18 @@ class JobPostsController < ApplicationController
         end
     end
 
+    def update
+        if @job_post.update(job_post_params)
+            render json: @job_post
+        else
+            render json: @job_post.errors, status: :unprocessable_entity
+        end
+    end
+
+    def destroy
+        @job_post.destroy
+    end
+
     private
 
         def set_job_post
