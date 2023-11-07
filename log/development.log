@@ -3057,3 +3057,99 @@ Completed 201 Created in 268ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations
   [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "jobseeker2@example.com"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
   [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for pp */ LIMIT ?[0m  [["LIMIT", 11]]
+Started POST "/auth/login" for ::1 at 2023-11-07 21:14:02 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"rakadissam7@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"rakadissam7@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissam7@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 249ms (Views: 0.2ms | ActiveRecord: 1.7ms | Allocations: 1072)
+
+
+Started POST "/job_posts" for ::1 at 2023-11-07 21:14:14 +0300
+Processing by JobPostsController#create as */*
+  Parameters: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+[31mUnpermitted parameter: :job_post. Context: { controller: JobPostsController, action: create, request: #<ActionDispatch::Request:0x00000001229f9f70>, params: {"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp.", "controller"=>"job_posts", "action"=>"create", "job_post"=>{"title"=>"Mid Level Software Engineer", "description"=>"3 years of Exp."}} }[0m
+Completed 401 Unauthorized in 8ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 5939)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:34:00 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 281ms (Views: 0.2ms | ActiveRecord: 12.5ms | Allocations: 805)
+
+
+Started DELETE "/users/2" for ::1 at 2023-11-07 21:36:14 +0300
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 401 Unauthorized in 9ms (Views: 0.3ms | ActiveRecord: 0.3ms | Allocations: 2428)
+
+
+Started DELETE "/users/2" for ::1 at 2023-11-07 21:36:16 +0300
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 401 Unauthorized in 5ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2244)
+
+
+Started DELETE "/users/2" for ::1 at 2023-11-07 21:36:17 +0300
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2244)
+
+
+Started DELETE "/users/3" for ::1 at 2023-11-07 21:36:22 +0300
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2245)
+
+
+Started POST "/auth/login" for ::1 at 2023-11-07 21:38:32 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:6:in `login'
+Completed 200 OK in 248ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 4152)
+
+
+Started DELETE "/users/3" for ::1 at 2023-11-07 21:38:38 +0300
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms | Allocations: 4466)
+
+
+Started DELETE "/users/4" for ::1 at 2023-11-07 21:38:42 +0300
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+Completed 401 Unauthorized in 3ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2244)
+
+
+Started DELETE "/users/5" for ::1 at 2023-11-07 21:38:45 +0300
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:20:in `authenticate_request'
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+Completed 401 Unauthorized in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 2244)
+
+
