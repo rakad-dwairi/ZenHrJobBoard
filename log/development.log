@@ -4661,3 +4661,47 @@ Processing by AuthenticationController#login as */*
 Completed 401 Unauthorized in 253ms (Views: 0.2ms | ActiveRecord: 0.3ms | Allocations: 13026)
 
 
+Started POST "/login" for ::1 at 2023-11-07 23:04:23 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 401 Unauthorized in 264ms (Views: 0.3ms | ActiveRecord: 0.4ms | Allocations: 471)
+
+
+Started POST "/login" for ::1 at 2023-11-07 23:04:28 +0300
+Processing by AuthenticationController#login as */*
+  Parameters: {"email"=>"admin@gmail.com", "password"=>"[FILTERED]", "authentication"=>{"email"=>"admin@gmail.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "admin@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/authentication_controller.rb:7:in `login'
+Completed 200 OK in 266ms (Views: 0.1ms | ActiveRecord: 0.1ms | Allocations: 736)
+
+
+Started POST "/register" for ::1 at 2023-11-07 23:04:35 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"rakadissamgmail.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"rakadissamgmail.com", "role"=>"admin"}}
+[31mUnpermitted parameters: :role, :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x000000010a162500>, params: {"email"=>"rakadissamgmail.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"rakadissamgmail.com", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:35:in `create'
+  [1m[36mUser Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissamgmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35:in `create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:35:in `create'
+Completed 422 Unprocessable Entity in 406ms (Views: 144.0ms | ActiveRecord: 0.6ms | Allocations: 283951)
+
+
+Started POST "/register" for ::1 at 2023-11-07 23:04:41 +0300
+Processing by UsersController#create as */*
+  Parameters: {"email"=>"rakadissa1mgmail.com", "password"=>"[FILTERED]", "role"=>"admin", "user"=>{"email"=>"rakadissa1mgmail.com", "role"=>"admin"}}
+[31mUnpermitted parameters: :role, :user. Context: { controller: UsersController, action: create, request: #<ActionDispatch::Request:0x000000010ad53a30>, params: {"email"=>"rakadissa1mgmail.com", "password"=>"[FILTERED]", "role"=>"admin", "controller"=>"users", "action"=>"create", "user"=>{"email"=>"rakadissa1mgmail.com", "role"=>"admin"}} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:35:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "rakadissa1mgmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:35:in `create'
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "created_at", "updated_at", "role") VALUES (?, ?, ?, ?, ?) RETURNING "id"[0m  [["email", "rakadissa1mgmail.com"], ["password_digest", "[FILTERED]"], ["created_at", "2023-11-07 20:04:41.593885"], ["updated_at", "2023-11-07 20:04:41.593885"], ["role", "jobseeker"]]
+  ↳ app/controllers/users_controller.rb:35:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:35:in `create'
+Completed 201 Created in 271ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 3436)
+
+
