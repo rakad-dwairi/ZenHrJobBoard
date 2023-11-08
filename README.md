@@ -49,7 +49,6 @@ This repository contains the backend code for a Job Board API. The API is design
 - `GET /job_posts/:id`: Show details of a specific job post.
 - `POST /job_posts`: Create a new job post (Admin only).
 - `PUT /job_posts/:id`: Update a job post (Admin only).
-- `DELETE /job_posts/:id`: Delete a job post (Admin only).
 
 ### Job Applications
 
@@ -57,7 +56,6 @@ This repository contains the backend code for a Job Board API. The API is design
 - `GET /job_applications/:id`: Show details of a specific job application.
 - `POST /job_applications`: Apply for a job.
 - `PUT /job_applications/:id`: Update a job application.
-- `DELETE /job_applications/:id`: Delete a job application.
 
 ### Authentication
 
